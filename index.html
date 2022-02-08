@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Finder</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/ios-glyphs/60/000000/business.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="data.js"></script>
+
+</head>
+<body ng-app="businessFinder" ng-controller="myController" ng-init="view=false">
+    <header id="top">
+        <nav>
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html" class="logo"><h2>Business<span>Finder</span></h2></a>
+                </div>
+                <div class="nav-menu">
+                    <ul>
+                        <li class="active"><a href="index.html">Home</a></li>
+                        <li><a href="">What's New</a></li>
+                        <li><a href="">About</a></li>
+                        <li><a href="">Account</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="form-container">
+            <form class="input-form" name="inputform">
+                <select ng-required="true" ng-model="category" name="category">
+                    <option value="" disabled>Category</option>
+                    <option ng-repeat="categ in categories" value="{{categ}}">{{categ}}</option>
+                </select><br>
+                <select ng-required="true" ng-model="area" name="area">
+                    <option value="" disabled>Location</option>
+                    <option ng-repeat="loc in locations" value="{{loc}}">{{loc}}</option>
+                </select>
+                <input type="submit" ng-disabled="inputform.category.$error.required || inputform.area.$error.required" ng-click="viewBusinesses()" value="Find" class="input-btn">
+            </form>
+        </div>
+    </header>
+    <section id="businesses" ng-model="businesses" ng-show="view">
+        <div class="heading">
+            <h1>{{category}} in {{area}}</h1>
+            <select ng-model="sortby" class="sortBy">
+                <option value="" disabled>Sort By</option>
+                <option value="name">Name</option>
+                <option value="-rating">Rating</option>
+                <option value="location">Location</option>
+            </select>
+        </div>
+        <div class="card-container">
+            <div class="business-card" ng-repeat="x in businesses | orderBy : sortby" ng-show="x.location.indexOf(area)!=-1 && x.category==category">
+                <div class="business-detail">
+                    <h1>{{x.name}}</h1>
+                    <span class="ratings">
+                        {{x.rating}} <i class="fa fa-star"></i>
+                    </span>
+                    <div class="info">
+                        <i class='fa fa-map-marker'></i>  {{x.location}}<br>
+                        <i class="fa fa-clock-o"></i>  {{x.timings}}<br>
+                        {{x.detail}}<br>
+                        <span class="more">{{x.more}}</span>
+                    </div>
+                    <a ng-href="{{x.website}}" class="btn" target="_blank">Visit Site</a>
+                </div>
+                <div class="business-image">
+                    <img ng-src="{{x.image}}">
+                    <div class="more-info">
+                        <h2>Contact</h2>
+                        <span ng-repeat="number in x.contact">
+                            <a href="tel:{{number}}">{{number}}</a><br>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </section>
+    <i class="fa fa-angle-up" id="top-btn" ng-click="scrollToTop()"></i>
+    <footer>
+        © Created by Vedica Kandoi<br>
+        <a href="https://drive.google.com/drive/folders/122pg9IZHSykGxb-jvtpD3MhyZufJ3M78?usp=sharing" target="_blank"><i class="fa fa-info"></i></a>
+        <a href="https://github.com/vedicakandoi" target="_blank"><i class="fa fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/vedica-kandoi-a85163215/" target="_blank"><i class="fa fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/vedicakandoi/" target="_blank"><i class="fa fa-instagram"></i></a>
+    </footer>
+</body>
+</html>
