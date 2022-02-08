@@ -136,7 +136,7 @@ section {
 }
 .ratings {
     display: inline-block;
-    background-color: rgb(175, 122, 109);;
+    background-color: rgb(175, 122, 109);
 	margin-top: 5px;
     margin-left: 3px;
     font-size: small;
@@ -215,7 +215,7 @@ footer {
 }
 footer .fa {
     margin: 30px 10px 0;
-    color: rgb(188, 216, 193);;
+    color: rgb(188, 216, 193);
 }
 footer .fa:hover {
     color: rgb(233, 217, 133);
@@ -230,43 +230,3 @@ footer .fa:hover {
     font-size: xx-large;
 }
 
-/***** Responsive *****/
-/* 
-@media screen and (max-width:1495px) {
-    .business-detail h1 {
-        font-size: 23px;
-    }
-}
-@media screen and (max-width:1410px) {
-    .business-card {
-        height: 250px;
-    }
-    .business-image {
-        width: 50%;
-    }
-    .business-image img {
-        position: absolute;
-        right: 0;
-    }
-    .more {
-        display: none;
-    }
-    .business-detail {
-        width: 30%;
-    }
-}
-@media screen and  {
-    
-}
-@media screen and (max-width:650px) {
-    .heading h1 {
-        font-size: 40px;
-        margin: 0 20px;
-    }
-}
-@media screen and (max-width:495px){
-    .heading h1{
-        font-size: 24px;
-        margin: 0 20px;
-    }
-} */
