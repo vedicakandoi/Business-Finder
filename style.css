@@ -136,7 +136,7 @@ section {
 }
 .ratings {
     display: inline-block;
-    background-color: rgb(175, 122, 109);;
+    background-color: rgb(175, 122, 109);
 	margin-top: 5px;
     margin-left: 3px;
     font-size: small;
@@ -215,7 +215,7 @@ footer {
 }
 footer .fa {
     margin: 30px 10px 0;
-    color: rgb(188, 216, 193);;
+    color: rgb(188, 216, 193);
 }
 footer .fa:hover {
     color: rgb(233, 217, 133);
